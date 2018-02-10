@@ -16,3 +16,8 @@ h3{
 .adicionar{
     text-align: center;
 }
+caption{
+    border: 1px solid;
+    border-top-left-radius: 5px;
+    font-size: 18px;
+}
