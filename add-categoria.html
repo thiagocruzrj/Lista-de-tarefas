@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="addCategoria">
+  <head>
+      <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="_CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_CSS/style.css">
+    <script src="_JS/angular.js"></script>
+    <script src="_JS/lista.js"></script>
+    <script src="_JS/app.js"></script>
+</head>
+
+<body ng-controller="ControllerCategoria">
+    <div class="jumbotron">
+        <div class="container cat">
+            <header>
+                <ul class="nav nav-tabs topo">
+                    <li role="presentation"><a href="index.html"> Ver tarefas por categorias</a></li>
+                    <li role="presentation"><a href="add-categoria.html"> + Categoria</a></li>
+                    <li role="presentation"><a href="add-tarefa.html"> + Tarefa</a></li>
+                </ul>
+            </header>
+            <div class="col-lg-13">
+                <div class="input-group grupo">
+                    <input type="text" class="form-control input-lg" ng-model="categoria" placeholder="Adicione uma categoria">
+                    <span class="input-group-btn">
+        <button class="btn btn-default btn-lg" type="button" ng-click="adicionarCategoria(categoria)" ng-disabled="!categoria">Add</button>
+      </span>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <tr>
+                    <th class="disponiveis">Categoria Disponiveis</th>
+                </tr>
+                <tr ng-repeat="categoria in categorias" class="text-left">
+                    <td>{{categoria}}</td>
+                </tr>
+            </table>
+            <hr>
+            <div class="alert alert-success" role="alert">OK! Categoria adiciona com sucesso</div>
+                <div class="alert alert-warning" role="alert">Error! Impossível adicionar categorias iguais ou em branco!</div>
+        </div>
+    </div>
+</body>
+</html>
