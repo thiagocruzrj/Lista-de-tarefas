@@ -1,30 +1,37 @@
+.container{
+    background-color: white;
+    border-radius: 5px;
+}
 .jumbotron{
-    background-color: lightslategrey;
+    background-color: gainsboro;
+    margin-bottom: auto;
+    margin-top: -30px;
 }
-.first{
-    background-color: ghostwhite;
-}
-.realizadas td {
+.feitas{
     text-decoration: line-through;
 }
-.realizadas, .pendentes{
-    border: 2px solid black;
-}
-.adicionar{
-    text-align: center;
-}
 caption {
-    border: 1px solid;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 35px;
-    background-color: lightblue;
+    padding-top: 5px;
 }
-caption p{
-    margin-left: 10px;
-    margin-top: -5px;
-    color: black;
+caption .titulo{
+    margin-top: 5px;
+    margin-bottom: -10px;
 }
-.container .grp{
-    margin-left: auto;
+input .novaCat{
+    width: 100px;
+}
+.cat{
+    width: 800px;
+}
+.grupo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.disponiveis{
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.selecao{
+    margin-bottom: 10px;
 }
