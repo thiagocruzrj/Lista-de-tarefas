@@ -1,15 +1,17 @@
-<!doctype html>
-<html>
-    <head>
-    <title>Categorias</title>
+<!Doctype html>
+<html ng-app="listaDeTarefas">
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="_css/boostrap337.css" type="text/css">
     <link rel="stylesheet" href="_css/style.css" type="text/css">
     
     <script type="text/javascript" src="_javascript/angularJS.js"></script>
-    <script src="_javascript/scriptCategorias.js" type="text/javascript"></script>
+    <script src="_javascript/scriptTarefas.js" type="text/javascript"></script>
+
 </head>
 
-<body ng-controller="listaDeCategoriasCtrl">
+<body ng-controller="criacaoTarefasCtrl">
     <div class="jumbotron">
         <div class="container first">
             <header>
@@ -19,31 +21,21 @@
                     <li role="presentation"><a href="tarefas.html"> + Tarefa</a></li>
                 </ul>
             </header>
-            <div class="container grp">
             <div class="col-lg-6">
                 <div class="input-group adicionar">
                     <input type="text" class="form-control" placeholder="Adicione uma categoria e pressione enter">
                     <span class="input-group-btn">
             <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
                     </span>
                 </div>
             </div>
-            <table class="table table-strip">
-            <tr ng-repeat="categoria in categorias">
-                <caption>Categorias Disponíveis</caption>
-                <td class="list-group-item" ng-repeat="(key,value) in categoria">
-                    {{value}}</td>
-            </tr>
-                </table>
-            <div class="alert alert-success" role="alert">
-            <a href="#" class="alert-link">Ok! Categoria adicionada com sucesso.</a>
-            </div>
-            <div class="alert alert-danger" role="alert">
-            <a href="#" class="alert-link">Erro! Não foi possivel adicionar a categoria. MAIS INFO SOBRE O ERRO</a>
-            </div>
-                </div>
+            <select ng-model="categorias.tarefas" ng-option="categoria in categorias"></select>
+            <ul class="list-group" ng-repeat="categoria in tarefas">
+                <h2>Categorias Disponíveis</h2>
+                <li class="list-group-item">{{categoria.nome}}</li>
+            </ul>
         </div>
     </div>
 </body>

@@ -1,0 +1,30 @@
+.jumbotron{
+    background-color: lightslategrey;
+}
+.first{
+    background-color: ghostwhite;
+}
+.realizadas td {
+    text-decoration: line-through;
+}
+.realizadas, .pendentes{
+    border: 2px solid black;
+}
+.adicionar{
+    text-align: center;
+}
+caption {
+    border: 1px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 35px;
+    background-color: lightblue;
+}
+caption p{
+    margin-left: 10px;
+    margin-top: -5px;
+    color: black;
+}
+.container .grp{
+    margin-left: auto;
+}
