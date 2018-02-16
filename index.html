@@ -1,59 +1,62 @@
-<!Doctype html>
-<html ng-app="listaDeTarefas">
-<head>
-    <meta charset="utf-8">
-    <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="_css/boostrap337.css" type="text/css">
-    <link rel="stylesheet" href="_css/style.css" type="text/css">
-    
-    <script type="text/javascript" src="_javascript/angularJS.js"></script>
-    <script type="text/javascript" src="_javascript/scriptLista.js"></script>
-    <script  type="text/javascript" src="_javascript/script.js"></script>
+<!doctype html>
+<html ng-app="listaTarefas">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="_CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_CSS/style.css">
+    <script src="_JS/angular.js"></script>
+    <script src="_JS/lista.js"></script>
+    <script src="_JS/app.js"></script>
 </head>
 
-<body ng-controller="listaDeTarefasCtrl">
-    <div class="jumbotron">
-        <div class="container first">
+<body ng-controller="Controller">
+        <div class="jumbotron">
+            <div class="container cat">
             <header>
                 <ul class="nav nav-tabs topo">
                     <li role="presentation"><a href="indexCategorias.html"> Ver tarefas por categorias</a></li>
-                    <li role="presentation"><a href="categorias.html"> + Categoria</a></li>
-                    <li role="presentation"><a href="tarefas.html"> + Tarefa</a></li>
+                    <li role="presentation"><a href="add-categoria.html"> + Categoria</a></li>
+                    <li role="presentation"><a href="add-tarefa.html"> + Tarefa</a></li>
                 </ul>
             </header>
-            <div class="container a1">
-            <table class="table table-hover pendentes">
-                <caption><p>Tarefas Pendentes</p></caption>
-                <tr>    
-                <th><a href="">Tarefa realizada</a></th>
-                <th><a href="">Tarefa</a></th>
-                <th><a href="">Categoria</a></th>
-                </tr>
-                <tr ng-repeat="tarefa in tarefas" | filter: { feito : false }>
-                <td><input type="checkbox" ng-model="tarefa.feito"></td>
-                <td>{{tarefa.nome}}</td>
-                <td>{{tarefa.categoria}}</td>
-                </tr>
-            </table>
-            </div>
-            <div class="container">
-                
-            <table class="table table-hover realizadas">
-                <caption><p>Tarefas Realizadas</p></caption>
+            <table class="table table-hover">
+                <caption>
+                    <p class="titulo">{{pendentes}}</p>
+                </caption>
                 <tr>
-                <th>Tarefa realizada</th>
-                <th>Tarefa</th>
-                <th>Categoria</th>
+                    <th>Tarefa Realizada</th>
+                    <th>Tarefa</th>
+                    <th>Categoria</th>
                 </tr>
-                <tr ng-repeat="tarefa in tarefas" ng-show="tarefa.feito == false">
-                <td><input type="checkbox" checked></td>
-                <td>{{tarefa.nome}}</td>
-                <td>{{tarefa.categoria}}</td>
+                <tr ng-repeat="tarefa in tarefas | filter:{ feito: false }" class="text-left">
+                    <td><input type="checkbox" ng-model="tarefa.feito" /></td>
+                    <td>{{tarefa.nome}}</td>
+                    <td>{{tarefa.categoria}}</td>
                 </tr>
             </table>
-                </div>
+            <hr>
+            <div>
+                <table class="table table-hover">
+                    <caption>
+                        <p class="titulo">{{concluidas}}</p>
+                    </caption>
+                    <tr>
+                        <th>Tarefa Realizada</th>
+                        <th>Tarefa</th>
+                        <th>Categoria</th>
+                    </tr>
+                    <tr ng-repeat="tarefa in tarefas |  filter:{ feito: true }" class="text-left">
+                        <td><input type="checkbox" ng-model="tarefa.feito" /></td>
+                        <td class="feitas">{{tarefa.nome}}</td>
+                        <td class="feitas">{{tarefa.categoria}}</td>
+                    </tr>
+                </table>
+                <hr>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
