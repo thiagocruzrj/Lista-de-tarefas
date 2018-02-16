@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="addTarefa">
+  <head>
+      <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="_CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="_CSS/style.css">
+    <script src="_JS/angular.js"></script>
+    <script src="_JS/lista.js"></script>
+    <script src="_JS/app.js"></script>
+</head>
+
+<body ng-controller="ControllerTarefa">
+    <div class="jumbotron">
+        <div class="container cat">
+            <header>
+                <ul class="nav nav-tabs topo">
+                    <li role="presentation"><a href="index.html"> Ver tarefas por categorias</a></li>
+                    <li role="presentation"><a href="add-categoria.html"> + Categoria</a></li>
+                    <li role="presentation"><a href="add-tarefa.html"> + Tarefa</a></li>
+                </ul>
+            </header>
+            <h4>{{pendentes}}</h4>
+            <form class="tarefaForm">
+                <div class="col-lg-13">
+                    <div class="input-group grupo">
+                        <input type="text" class="form-control input-lg" ng-model="tarefa.nome" name="nome" placeholder="Adicione uma tarefa" ng-required="true">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default btn-lg" type="button" ng-click="adicionarTarefa(tarefa)" ng-disabled="!tarefa.nome || !tarefa.categoria">Add</button>
+                        </span>
+                    </div>
+                </div>
+                <select class="form-control selecao" ng-model="tarefa.categoria" ng-options="categorias for categorias in categorias" ng-required="true">
+			<option value="">Selecione uma categoria</option>
+		</select>
+            </form>
+            <table class="table table-hover">
+                <tr>
+                    <th class="disponiveis">Lista de Tarefas</th>
+                </tr>
+                <tr ng-repeat="tarefa in tarefas" class="text-left">
+                    <td>{{tarefa.nome}} ( {{tarefa.categoria}} )</td>
+                </tr>
+            </table>
+            <hr>
+            <div class="alert alert-success" ng-show="tarefaForm.nome.$valid" role="alert">OK! Tarefa adiciona com sucesso</div>
+            <div class="alert alert-warning" ng-show="adicionarTarefa.nome.$invalid" role="alert">Error! Impossível adicionar tarefas iguais ou em branco!</div>
+            <div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
